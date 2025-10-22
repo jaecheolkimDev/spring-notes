@@ -1,8 +1,8 @@
 Spring 공부 노트
 =================
 
-#1. 개념
------
+1.개념
+---------------
 
 > 컨테이너(Container) : 객체(Bean)를 생성·관리·소멸시키는 주체로, 프로그램 실행 중 객체의 생명주기를 대신 관리하는 공간.
 
@@ -32,8 +32,13 @@ Spring 공부 노트
 
 
 
-#2. @Annotations
+2.@Annotations
 ------------------
+
+### @Configuration , @Bean
+
+@ConditionalOnProperty
+- Spring Boot의 조건부 애노테이션으로, 특정 프로퍼티의 존재/값에 따라 @Configuration 클래스나 @Bean 등록을 활성화/비활성화합니다.
 
 @ConfigurationProperties(prefix = "app")
 - application.properties / application.yml 또는 환경 변수 등에서 특정 접두사(prefix)를 가진 설정 값을 자바 빈(POJO)에 바인딩(맵핑)해 주는 어노테이션
