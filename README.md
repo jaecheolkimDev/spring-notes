@@ -21,7 +21,9 @@ Spring 공부 노트
 > Spring Container : Bean을 생성, 관리, 소멸시키는 역할을 하는 IoC 엔진
 - → 대표 구현체는 BeanFactory 와 ApplicationContext
 
-> ApplicationContext : BeanFactory의 확장판으로, Bean 관리 + 환경 설정, 메시지 처리, 이벤트 발행, AOP 지원 등을 함께 제공하는 스프링의 핵심 컨테이너
+> 스프링 컨텍스트(Spring Context) : 스프링의 전체 실행 환경을 지칭하는 포괄적인 개념
+
+> Application Context : BeanFactory의 확장판으로, Bean 관리 + 환경 설정, 메시지 처리, 이벤트 발행, AOP 지원 등을 함께 제공하는 스프링의 핵심 컨테이너
 
 > AOP (Aspect Oriented Programming, 관점 지향 프로그래밍) : 핵심 로직(Core Concern) 과 공통 로직(Cross-cutting Concern) 을 분리하여, 공통 기능을 횡단 관심사(Aspect) 로 관리하는 방식
 - → 예: 로깅, 트랜잭션, 보안 처리 등
@@ -36,6 +38,7 @@ Spring 공부 노트
 ------------------
 
 ### @Configuration , @Bean
+@Configuration : Spring 컨테이너 초기화 시 스캔됩니다.
 
 @ConditionalOnProperty
 - Spring Boot의 조건부 애노테이션으로, 특정 프로퍼티의 존재/값에 따라 @Configuration 클래스나 @Bean 등록을 활성화/비활성화합니다.
@@ -44,4 +47,7 @@ Spring 공부 노트
 - application.properties / application.yml 또는 환경 변수 등에서 특정 접두사(prefix)를 가진 설정 값을 자바 빈(POJO)에 바인딩(맵핑)해 주는 어노테이션
 
 @ComponetScan(basePackages = {"com.example.service", "com.example.batch"})
-- basePackages와 그 하위 패키지 전체를 스캔해서 "컴포넌트 후보"로 판단되는 클래스들은 전부 스프링 빈으로 등록 
+- basePackages와 그 하위 패키지 전체를 스캔해서 "컴포넌트 후보"로 판단되는 클래스들은 전부 스프링 빈으로 등록
+
+@EnableJpaRepositories
+- JPA 리포지토리 인터페이스를 스캔하고 해당 인터페이스에 대한 구현체를 자동으로 생성하는 역할을 합니다.
